@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>سباق الأزرق</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🏎️ سباق الأزرق</div>
+    <div class="subtitle">أسرع طريق نحو القمة! 🏆</div>
+  </div>
+
+  <section id="mainMenu" class="menu">
+    <div class="menu-card">
+      <div class="menu-title">🌟 مرحبًا بك في سباق الأزرق</div>
+
+      <div class="stats">
+        <div class="stat">
+          🏆 أعلى نتيجة
+          <b id="menuBest">0</b>
+        </div>
+
+        <div class="stat">
+          🪙 العملات
+          <b id="menuCoins">0</b>
+        </div>
+      </div>
+
+      <button class="primary" id="playButton">🏁 ابدأ السباق</button>
+      <br />
+      <button class="secondary" id="carsButton">🚗 اختيار السيارة</button>
+    </div>
+  </section>
+
+  <section id="carMenu" class="menu hidden">
+    <div class="menu-card">
+      <div class="menu-title">🚗 اختر سيارتك</div>
+
+      <div class="cars">
+        <div class="car-card selected" data-car="blue">
+          <div class="car-preview car-blue"></div>
+          <div class="car-name">الصاعقة الزرقاء</div>
+          <div class="car-info">السيارة الأساسية</div>
+          <div class="price">مجانية</div>
+        </div>
+
+        <div class="car-card" data-car="red">
+          <div class="lock">🔒</div>
+          <div class="car-preview car-red"></div>
+          <div class="car-name">النمر الأحمر</div>
+          <div class="car-info">سرعة أعلى</div>
+          <div class="price">🪙 100</div>
+        </div>
+
+        <div class="car-card" data-car="gold">
+          <div class="lock">🔒</div>
+          <div class="car-preview car-gold"></div>
+          <div class="car-name">الذهبية</div>
+          <div class="car-info">سيارة أسطورية</div>
+          <div class="price">🪙 250</div>
+        </div>
+      </div>
+
+      <button id="backButton" class="secondary">↩️ العودة</button>
+    </div>
+  </section>
+
+  <section id="gameSection" class="game-wrap hidden">
+    <div class="info">
+      <div class="box">النقاط: <b id="score">0</b></div>
+      <div class="box">🏆 الأفضل: <b id="best">0</b></div>
+      <div class="box">🪙 العملات: <b id="coinsTotal">0</b></div>
+    </div>
+
+    <div class="game" id="game">
+      <div class="road"></div>
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="glow glow-left"></div>
+      <div class="glow glow-right"></div>
+
+      <div class="car player-blue" id="player"></div>
+
+      <div class="overlay" id="overlay">
+        <h2 id="gameTitle">🏁 سباق الأزرق</h2>
+        <p id="gameMessage">تجنب السيارات واجمع العملات!</p>
+        <button id="start">ابدأ اللعب</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="left">⬅️</button>
+      <button id="pause">⏸️</button>
+      <button id="restart">🔄</button>
+      <button id="sound">🔊</button>
+      <button id="right">➡️</button>
+    </div>
+
+    <button id="menuButton" class="secondary">🏠 القائمة الرئيسية</button>
+
+    <p>الأسهم للتحرك • P للإيقاف • R لإعادة التشغيل</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
