@@ -2,17 +2,32 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-1: #03132d;
+  --bg-2: #0757ad;
+  --bg-3: #001b40;
+  --panel: rgba(255, 255, 255, 0.12);
+  --line: rgba(255, 255, 255, 0.25);
+  --cyan: #00d7ff;
+  --cyan-strong: #08aaff;
+  --gold: #ffd43b;
+  --white: #ffffff;
+  --dark: #0d1221;
+  --road-dark: #2d2d2d;
+  --road-light: #6a6a6a;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   background:
-    radial-gradient(circle at 20% 10%, rgba(22, 140, 255, 0.5), transparent 30%),
-    radial-gradient(circle at 80% 90%, rgba(0, 217, 255, 0.35), transparent 35%),
-    linear-gradient(135deg, #03132d, #0757ad, #001b40);
+    radial-gradient(circle at 20% 10%, rgba(22, 140, 255, 0.55), transparent 30%),
+    radial-gradient(circle at 80% 90%, rgba(0, 217, 255, 0.3), transparent 35%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
 }
 
 button {
@@ -20,21 +35,21 @@ button {
   border-radius: 14px;
   padding: 14px 22px;
   background: linear-gradient(180deg, #11b8ff, #0687ea);
-  color: #fff;
+  color: var(--white);
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.38);
 }
 
 button:hover {
   transform: translateY(-2px);
-  background: linear-gradient(180deg, #3ad1ff, #08aaff);
+  background: linear-gradient(180deg, #41d2ff, #08aaff);
 }
 
 button:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 .hidden {
@@ -48,12 +63,13 @@ button:active {
 .logo {
   font-size: 42px;
   font-weight: 900;
-  text-shadow: 0 4px 20px rgba(0, 191, 255, 0.8);
+  text-shadow: 0 4px 20px rgba(0, 193, 255, 0.85);
 }
 
 .subtitle {
   opacity: 0.8;
-  margin-top: 5px;
+  margin-top: 8px;
+  font-size: 16px;
 }
 
 .menu {
@@ -62,8 +78,8 @@ button:active {
 }
 
 .menu-card {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.20);
   backdrop-filter: blur(12px);
   border-radius: 25px;
   padding: 30px;
@@ -85,10 +101,10 @@ button:active {
 
 .stat {
   background: rgba(0, 26, 61, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 15px;
   padding: 12px 20px;
-  min-width: 140px;
+  min-width: 150px;
 }
 
 .stat b {
@@ -102,16 +118,17 @@ button:active {
   width: min(350px, 100%);
   font-size: 21px;
   padding: 17px;
+  margin-bottom: 14px;
 }
 
 .secondary {
   margin-top: 12px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .cars {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
   gap: 18px;
   margin: 20px 0;
 }
@@ -119,11 +136,11 @@ button:active {
 .car-card {
   position: relative;
   padding: 22px 15px;
-  background: rgba(0, 27, 61, 0.7);
+  background: rgba(0, 27, 61, 0.76);
   border: 2px solid transparent;
-  border-radius: 20px;
+  border-radius: 22px;
   cursor: pointer;
-  transition: 0.25s;
+  transition: 0.25s ease;
 }
 
 .car-card:hover {
@@ -133,52 +150,69 @@ button:active {
 
 .car-card.selected {
   border-color: #00c8ff;
-  box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.55);
 }
 
 .car-preview {
-  width: 70px;
-  height: 115px;
-  margin: 5px auto 15px;
-  border-radius: 18px;
+  width: 92px;
+  height: 128px;
+  margin: 2px auto 15px;
+  border-radius: 24px;
   position: relative;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55);
+  transform: skewX(-2deg);
 }
 
 .car-preview:before,
 .car-preview:after {
   content: "";
   position: absolute;
-  width: 13px;
-  height: 27px;
-  top: 12px;
+  width: 15px;
+  height: 30px;
+  top: 14px;
   background: rgba(17, 17, 17, 0.75);
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .car-preview:before {
-  left: -9px;
-  box-shadow: 0 57px 0 rgba(17, 17, 17, 0.75);
+  left: -10px;
+  box-shadow: 0 62px 0 rgba(17, 17, 17, 0.75);
 }
 
 .car-preview:after {
-  right: -9px;
-  box-shadow: 0 57px 0 rgba(17, 17, 17, 0.75);
+  right: -10px;
+  box-shadow: 0 62px 0 rgba(17, 17, 17, 0.75);
 }
 
 .car-blue {
-  background: linear-gradient(180deg, #42d8ff, #0f7ef0);
-  border: 4px solid #d7f6ff;
+  background: linear-gradient(100deg, #031b45, #087cff 48%, #67e9ff);
+  border: 3px solid #baf6ff;
+  box-shadow: 0 0 25px rgba(0, 207, 255, 0.4), 0 14px 28px rgba(0, 0, 0, 0.5);
 }
 
 .car-red {
-  background: linear-gradient(180deg, #ff7c87, #d71935);
-  border: 4px solid #ffd5db;
+  background: linear-gradient(100deg, #3b0010, #e51c42 48%, #ff7185);
+  border: 3px solid #ffd1d8;
+  box-shadow: 0 0 25px rgba(255, 41, 68, 0.4), 0 14px 28px rgba(0, 0, 0, 0.5);
 }
 
 .car-gold {
-  background: linear-gradient(180deg, #ffe88a, #f4b100);
-  border: 4px solid #fff7c9;
+  background: linear-gradient(100deg, #4b2900, #f5b900 45%, #fff1a0);
+  border: 3px solid #fff6bf;
+  box-shadow: 0 0 30px rgba(255, 212, 59, 0.45), 0 14px 28px rgba(0, 0, 0, 0.5);
+}
+
+.car-card:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 78px;
+  width: 46px;
+  height: 5px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 0 15px rgba(255,255,255,0.75);
 }
 
 .lock {
@@ -191,9 +225,9 @@ button:active {
 }
 
 .price {
-  color: #ffd43b;
+  color: var(--gold);
   font-weight: bold;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .car-name {
@@ -202,9 +236,29 @@ button:active {
 }
 
 .car-info {
-  opacity: 0.75;
+  opacity: 0.78;
   font-size: 13px;
   margin-top: 5px;
+}
+
+.car-stats {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.car-stat {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9px;
+  padding: 5px 7px;
+}
+
+.speed-stars {
+  color: #63dcff;
+  letter-spacing: 1px;
 }
 
 .game-wrap {
@@ -222,30 +276,21 @@ button:active {
   background: linear-gradient(180deg, #2f2f2f, #1d1d1d);
   border: 5px solid #8bdcff;
   border-radius: 22px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
   touch-action: none;
 }
 
 .road {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    #686868 0 10%,
-    #2b2b2b 10% 90%,
-    #686868 90%
-  );
+  background: linear-gradient(90deg, var(--road-light) 0 10%, var(--road-dark) 10% 90%, var(--road-light) 90%);
 }
 
 .line {
   position: absolute;
   width: 7px;
   height: 100%;
-  background: repeating-linear-gradient(
-    to bottom,
-    #fff 0 48px,
-    transparent 48px 92px
-  );
+  background: repeating-linear-gradient(to bottom, #fff 0 48px, transparent 48px 92px);
   animation: roadMove 0.45s linear infinite;
 }
 
@@ -274,57 +319,56 @@ button:active {
   bottom: 25px;
   width: 58px;
   height: 96px;
-  border-radius: 16px;
+  border-radius: 17px;
   z-index: 5;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.55);
-  transition: transform 0.08s ease;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.9), 0 0 12px rgba(0, 191, 255, 0.35);
 }
 
 .player-blue {
-  background: linear-gradient(180deg, #39d8ff, #0b85ee);
-  border: 4px solid #dffaff;
+  background: linear-gradient(100deg, #031b45, #087cff 48%, #67e9ff);
+  border: 3px solid #baf6ff;
 }
 
 .player-red {
-  background: linear-gradient(180deg, #ff7d7d, #eb2e4b);
-  border: 4px solid #ffd4d8;
+  background: linear-gradient(100deg, #3b0010, #e51c42 48%, #ff7185);
+  border: 3px solid #ffd1d8;
 }
 
 .player-gold {
-  background: linear-gradient(180deg, #ffe98c, #f5ae00);
-  border: 4px solid #fff2b0;
+  background: linear-gradient(100deg, #4b2900, #f5b900 45%, #fff1a0);
+  border: 3px solid #fff6bf;
 }
 
 .car:before,
 .car:after {
   content: "";
   position: absolute;
-  width: 11px;
-  height: 22px;
-  top: 12px;
+  width: 12px;
+  height: 24px;
+  top: 11px;
   background: rgba(17,17,17,0.9);
   border-radius: 5px;
 }
 
 .car:before {
   left: -8px;
-  box-shadow: 0 50px 0 rgba(17,17,17,0.9);
+  box-shadow: 0 48px 0 rgba(17,17,17,0.9);
 }
 
 .car:after {
   right: -8px;
-  box-shadow: 0 50px 0 rgba(17,17,17,0.9);
+  box-shadow: 0 48px 0 rgba(17,17,17,0.9);
 }
 
 .enemy {
   position: absolute;
   width: 58px;
   height: 96px;
-  border-radius: 16px;
+  border-radius: 17px;
   z-index: 4;
-  background: linear-gradient(180deg, #ff5f6d, #d6003d);
-  border: 4px solid #ffc7ce;
-  box-shadow: 0 8px 18px rgba(255, 0, 60, 0.25);
+  background: linear-gradient(100deg, #2b0710, #d71935 50%, #ff6d7d);
+  border: 3px solid #ffd0d6;
+  box-shadow: 0 7px 18px rgba(0,0,0,0.55);
 }
 
 .coin {
@@ -335,7 +379,7 @@ button:active {
   background: radial-gradient(circle at 30% 30%, #fffde7, #f6d54b 40%, #d7a600 100%);
   border: 4px solid #fff3a0;
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(255, 220, 70, 0.9);
+  box-shadow: 0 0 15px rgba(255, 220, 70, 0.85);
 }
 
 .overlay {
@@ -375,6 +419,11 @@ button:active {
   background: rgba(255,255,255,0.14);
   border-radius: 12px;
   padding: 10px 18px;
+}
+
+.helper {
+  opacity: 0.8;
+  margin-top: 10px;
 }
 
 @media (max-width: 700px) {
